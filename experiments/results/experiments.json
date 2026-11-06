@@ -1,0 +1,621 @@
+{
+  "E1": {
+    "seeds_per_scenario": 200,
+    "retries": 2,
+    "rows": [
+      {
+        "failure_rate": 0.1,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 1.0,
+        "predicted": 0.999,
+        "pass_hat_10": 1.0
+      },
+      {
+        "failure_rate": 0.1,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 1.0,
+        "predicted": 0.996,
+        "pass_hat_10": 1.0
+      },
+      {
+        "failure_rate": 0.2,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 1.0,
+        "predicted": 0.992,
+        "pass_hat_10": 1.0
+      },
+      {
+        "failure_rate": 0.2,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 0.985,
+        "predicted": 0.968,
+        "pass_hat_10": 0.85
+      },
+      {
+        "failure_rate": 0.3,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 0.995,
+        "predicted": 0.973,
+        "pass_hat_10": 0.95
+      },
+      {
+        "failure_rate": 0.3,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 0.925,
+        "predicted": 0.896,
+        "pass_hat_10": 0.4
+      },
+      {
+        "failure_rate": 0.4,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 0.95,
+        "predicted": 0.936,
+        "pass_hat_10": 0.6
+      },
+      {
+        "failure_rate": 0.4,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 0.805,
+        "predicted": 0.768,
+        "pass_hat_10": 0.15
+      },
+      {
+        "failure_rate": 0.5,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 0.895,
+        "predicted": 0.875,
+        "pass_hat_10": 0.4
+      },
+      {
+        "failure_rate": 0.5,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 0.61,
+        "predicted": 0.586,
+        "pass_hat_10": 0.0
+      },
+      {
+        "failure_rate": 0.6,
+        "group": "1 agent, 1 tool call",
+        "trial_success": 0.77,
+        "predicted": 0.784,
+        "pass_hat_10": 0.05
+      },
+      {
+        "failure_rate": 0.6,
+        "group": "3 agents, 4 tool calls",
+        "trial_success": 0.385,
+        "predicted": 0.378,
+        "pass_hat_10": 0.0
+      }
+    ]
+  },
+  "E2": {
+    "rows": [
+      {
+        "contracts": "on",
+        "fault": "triage=relay",
+        "scenario": "inject-01",
+        "truth": [
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "triage=lossy",
+        "scenario": "refund-02",
+        "truth": [
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "billing"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "billing=duplicate",
+        "scenario": "reliab-05",
+        "truth": [
+          "billing"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "billing=overclaim",
+        "scenario": "reliab-03",
+        "truth": [
+          "billing"
+        ],
+        "failed": true,
+        "last_actor": [
+          "billing"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "triage=lossy,billing=guessing",
+        "scenario": "refund-02",
+        "truth": [
+          "billing",
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "billing"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "billing=overclaim,comms=trusting",
+        "scenario": "reliab-03",
+        "truth": [
+          "billing",
+          "comms"
+        ],
+        "failed": true,
+        "last_actor": [
+          "billing"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "on",
+        "fault": "billing=guessing",
+        "scenario": "refund-02",
+        "truth": [
+          "billing"
+        ],
+        "failed": false
+      },
+      {
+        "contracts": "on",
+        "fault": "comms=trusting",
+        "scenario": "reliab-03",
+        "truth": [
+          "comms"
+        ],
+        "failed": false
+      },
+      {
+        "contracts": "off",
+        "fault": "triage=relay",
+        "scenario": "inject-01",
+        "truth": [
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "triage=lossy",
+        "scenario": "refund-02",
+        "truth": [
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "billing"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "billing=duplicate",
+        "scenario": "reliab-05",
+        "truth": [
+          "billing"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "billing=overclaim",
+        "scenario": "reliab-03",
+        "truth": [
+          "billing"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "triage=lossy,billing=guessing",
+        "scenario": "refund-02",
+        "truth": [
+          "billing",
+          "triage"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "triage"
+        ],
+        "counterfactual": [
+          "triage"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "billing=overclaim,comms=trusting",
+        "scenario": "reliab-03",
+        "truth": [
+          "billing",
+          "comms"
+        ],
+        "failed": true,
+        "last_actor": [
+          "comms"
+        ],
+        "first_violation": [
+          "billing"
+        ],
+        "counterfactual": [
+          "billing"
+        ],
+        "replays": 4
+      },
+      {
+        "contracts": "off",
+        "fault": "billing=guessing",
+        "scenario": "refund-02",
+        "truth": [
+          "billing"
+        ],
+        "failed": false
+      },
+      {
+        "contracts": "off",
+        "fault": "comms=trusting",
+        "scenario": "reliab-03",
+        "truth": [
+          "comms"
+        ],
+        "failed": false
+      }
+    ],
+    "accuracy_on_failed_runs": {
+      "last_actor": {
+        "exact": 0.08,
+        "names_a_faulty_agent": 0.33
+      },
+      "first_violation": {
+        "exact": 0.67,
+        "names_a_faulty_agent": 1.0
+      },
+      "counterfactual": {
+        "exact": 0.67,
+        "names_a_faulty_agent": 1.0
+      }
+    },
+    "failed_runs": 12
+  },
+  "E3": {
+    "rows": [
+      {
+        "retry": "same key",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.1,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "same key",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.3,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "same key",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.5,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "same key",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.1,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "same key",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.3,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "same key",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.5,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.1,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 24
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.3,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 62
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "full refund ($45)",
+        "ambiguous_timeout_rate": 0.5,
+        "runs": 200,
+        "duplicate_payments": 0,
+        "overpaid": 0.0,
+        "customer_told_it_failed": 106
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.1,
+        "runs": 200,
+        "duplicate_payments": 24,
+        "overpaid": 480.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.3,
+        "runs": 200,
+        "duplicate_payments": 62,
+        "overpaid": 1240.0,
+        "customer_told_it_failed": 0
+      },
+      {
+        "retry": "new key per attempt",
+        "refund": "partial refund ($20)",
+        "ambiguous_timeout_rate": 0.5,
+        "runs": 200,
+        "duplicate_payments": 106,
+        "overpaid": 2120.0,
+        "customer_told_it_failed": 0
+      }
+    ]
+  },
+  "E4": {
+    "rows": [
+      {
+        "team": "faithful",
+        "contracts": "on",
+        "task_success": 1.0,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "faithful",
+        "contracts": "off",
+        "task_success": 1.0,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "triage=relay",
+        "contracts": "on",
+        "task_success": 0.94,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "triage=relay",
+        "contracts": "off",
+        "task_success": 0.94,
+        "unsafe_writes": 1,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "triage=lossy",
+        "contracts": "on",
+        "task_success": 0.5,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 8
+      },
+      {
+        "team": "triage=lossy",
+        "contracts": "off",
+        "task_success": 0.5,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 8
+      },
+      {
+        "team": "billing=duplicate",
+        "contracts": "on",
+        "task_success": 0.88,
+        "unsafe_writes": 0,
+        "duplicate_payments": 1,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "billing=duplicate",
+        "contracts": "off",
+        "task_success": 0.88,
+        "unsafe_writes": 0,
+        "duplicate_payments": 1,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "billing=overclaim",
+        "contracts": "on",
+        "task_success": 0.94,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 1
+      },
+      {
+        "team": "billing=overclaim",
+        "contracts": "off",
+        "task_success": 0.94,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "triage=lossy,billing=guessing",
+        "contracts": "on",
+        "task_success": 0.5,
+        "unsafe_writes": 0,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 8
+      },
+      {
+        "team": "triage=lossy,billing=guessing",
+        "contracts": "off",
+        "task_success": 0.5,
+        "unsafe_writes": 2,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 0
+      },
+      {
+        "team": "billing=overclaim,comms=trusting",
+        "contracts": "on",
+        "task_success": 0.88,
+        "unsafe_writes": 1,
+        "duplicate_payments": 0,
+        "false_success_claims": 0,
+        "stopped_or_escalated": 1
+      },
+      {
+        "team": "billing=overclaim,comms=trusting",
+        "contracts": "off",
+        "task_success": 0.88,
+        "unsafe_writes": 2,
+        "duplicate_payments": 0,
+        "false_success_claims": 1,
+        "stopped_or_escalated": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+name: CI quality gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1"
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  tests:
+    name: Tools, handoffs, agents, team and blame tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements-dev.txt
+      - run: pytest --junitxml=reports/junit.xml
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: reports/
+
+  team-evals:
+    name: Team evals, reliability, blame self-test + negative controls
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Scenarios, pass^k reliability, blame self-test and gates
+        run: python -m evals.run_team_evals
+      - name: Publish report to the job summary
+        if: always()
+        run: cat evals/results/team_report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Contracts off must not be what makes the faithful team pass
+        run: python -m evals.run_team_evals --no-contracts --out /tmp/faithful-no-contracts > /dev/null
+      - name: Negative controls (each broken team MUST fail the gate)
+        run: |
+          check() {
+            if FAKE_TEAM="$1" python -m evals.run_team_evals $2 --k 5 --out "/tmp/neg" > /dev/null 2>&1; then
+              echo "::error::The gate passed a broken team ($1 $2). The gate is broken."
+              exit 1
+            fi
+            echo "Gate correctly rejected: $1 $2"
+          }
+          check "triage=relay"
+          check "triage=lossy"
+          check "billing=duplicate"
+          check "billing=overclaim"
+          check "triage=lossy,billing=guessing" --no-contracts
+          check "billing=overclaim,comms=trusting" --no-contracts
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: team-report
+          path: evals/results/
+
+  experiments:
+    name: Experiments are reproducible
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Re-run all four experiments
+        run: python -m experiments.run_experiments > /dev/null
+      - name: Results must match the committed ones
+        run: |
+          if ! git diff --exit-code -- experiments/results/; then
+            echo "::error::Experiment results differ from the committed ones. Re-run and commit them, and update any article that quotes them."
+            exit 1
+          fi
+          echo "Experiment results reproduced exactly."
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-results
+          path: experiments/results/

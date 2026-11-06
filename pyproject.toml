@@ -1,0 +1,11 @@
+[project]
+name = "multi-agent-testing-lab"
+version = "1.0.0"
+description = "Test a team of AI agents: handoff contracts, provenance, relayed injection, blame assignment, idempotency and compounding reliability, with CI gates."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"

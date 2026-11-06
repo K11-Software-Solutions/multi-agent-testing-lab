@@ -1,0 +1,24 @@
+{
+  "title": "Multi-Agent Testing Lab",
+  "description": "Test a team of AI agents that pass work to each other: handoff contracts, relayed prompt injection, blame assignment, duplicate payments, loops and compounding reliability, with CI gates and negative controls. No API key needed.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Jadhav, Kavita",
+      "affiliation": "K11 Software Solutions"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "multi-agent-systems",
+    "ai-agents",
+    "agent-testing",
+    "ai-quality-engineering",
+    "llm-evaluation",
+    "prompt-injection",
+    "idempotency",
+    "blame-assignment",
+    "handoffs"
+  ],
+  "notes": "Code is licensed under MIT; the written material (articles/) is licensed under CC BY 4.0. The store, customers and orders in the examples are fictional."
+}
