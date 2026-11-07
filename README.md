@@ -8,7 +8,7 @@
 
 **Test a team of AI agents that pass work to each other: handoff contracts, relayed prompt injection, blame assignment, duplicate payments, loops and reliability that compounds across agents. Then gate it in CI.**
 
-The fifth of eight labs in a series for quality engineers moving into AI:
+The fifth of ten labs in a series for quality engineers moving into AI:
 
 | Lab | Question it answers |
 |---|---|
@@ -20,6 +20,8 @@ The fifth of eight labs in a series for quality engineers moving into AI:
 | [AI Performance and Cost Lab](https://github.com/K11-Software-Solutions/ai-performance-cost-lab) | Is it **fast enough under load**, and what does each **good answer** cost? |
 | [AI Evaluation Science Lab](https://github.com/K11-Software-Solutions/ai-evaluation-science-lab) | Can we **trust the evaluator**, and how sure are we? |
 | [AI Data Quality Lab](https://github.com/K11-Software-Solutions/ai-data-quality-lab) | Is the **data** behind it all fit to learn from, test with and retrieve? |
+| [AI Security Testing Lab](https://github.com/K11-Software-Solutions/ai-security-testing-lab) | Can an **attacker** make it misbehave, and how sure are we that they can't? |
+| [MCP Testing Lab](https://github.com/K11-Software-Solutions/mcp-testing-lab) | Can we trust the **tools our agents plug into**? |
 
 ## The system under test
 
